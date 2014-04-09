@@ -8,29 +8,28 @@
     <body>
         
         <table>
-            <tr>
-                <td>1</td> <td>date</td>
-            </tr>
-            <tr style="background-color: silver;">
-                <td>1</td> <td>date</td>
-            </tr>
-        </table>
+            
         
         <?php
-            
-            $date = new DateTime();
-            $date->setDate(2001, 2, 3);
-            //echo $date->format('Y-m-d');
-
-        
+            $number = 1;
             for ($i = 1; $i <= 100; $i++) {
-              echo "<td>$i</td> <td>$date</td>";  
-              echo $i;
-            }
-
-
             
-            
-        ?>
+                $date= date("m d Y");
+              
+              if ($number % 2 === 0){
+              echo '<tr style="background-color: silver;">';
+              echo "<td>'$number'</td> <td>$date</td>";
+              echo '</tr>';
+              }
+              else {
+                    echo '<tr>';
+                    echo "<td>'$number'</td> <td>$date</td>";
+                    echo '</tr>';
+                }
+              $number++;
+              }
+          ?>
+        
+        </table>
     </body>
 </html>
