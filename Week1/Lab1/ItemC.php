@@ -8,7 +8,6 @@
     <body>
         
         <table>
-            
         
         <?php
             $number = 1;
