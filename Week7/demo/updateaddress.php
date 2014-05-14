@@ -29,7 +29,7 @@
         <form name="mainform" action="#" method="post"> 
            <fieldset>
 		<legend>Update:</legend>
-                <label for="name">Address:</label> 
+                <label for="name">Name:</label> 
                 <input id="name" type="text" name="name" value="<?php echo $addressResult['name']; ?>" /> <br />
                
                 <label for="address">Address:</label> 
@@ -44,6 +44,8 @@
                 <label for="zip">ZIP:</label> 
                 <input id="zip" type="text" name="zip" value="<?php echo $addressResult['zip']; ?>" /> <br />
                
+                
+                <input type="hidden" name="id" value="<?php echo $addressResult['id']; ?>" />
                 <input type="submit" value="Submit" />
             </fieldset>
         </form>
