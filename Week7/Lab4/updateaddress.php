@@ -11,6 +11,7 @@
         
         Util::confirmAccess();
       
+        $states = States::getStates();
         
          $address = new AddressBook();
          
@@ -51,7 +52,20 @@
                 <input id="city" type="text" name="city" value="<?php echo $addressResult['city']; ?>" /> <br />
                
                 <label for="state">State:</label> 
-                <input id="state" type="text" name="state" value="<?php echo $addressResult['state']; ?>" /> <br />
+                <select name="state" >
+                
+                <?php
+                
+                foreach($states as $stateid=>$state){
+                    if( $addressResult['state'] === $state ){
+                        echo'<option value="',$state,'" selected = "selected">',$state,'</option>';
+                    }  else {
+                      echo'<option value="',$state,'">',$state,'</option>';  
+                    }
+                }
+                
+                ?>
+                </select><br />
                               
                 <label for="zip">ZIP:</label> 
                 <input id="zip" type="text" name="zip" value="<?php echo $addressResult['zip']; ?>" /> <br />

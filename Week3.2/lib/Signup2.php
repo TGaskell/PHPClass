@@ -9,10 +9,11 @@
 /**
  * Description of Signup2
  *
- * @author Owner
+ * @author GFORTI
  */
 class Signup2 {
-   
+    //put your code here
+    
     protected $errors = array();
     
     private $email;
@@ -25,7 +26,7 @@ class Signup2 {
         $this->setEmail( filter_input(INPUT_POST, 'email') );
         $this->setUsername( filter_input(INPUT_POST, 'username') );
         $this->setPassword(filter_input(INPUT_POST, 'password'));
-        $this->setConfirmPassword(filter_input(INPUT_POST, 'confirmpassword'));        
+        $this->setConfirmPassword(filter_input(INPUT_POST, 'confirmPassword'));        
     }
     
     
@@ -49,15 +50,8 @@ class Signup2 {
     * @return boolean
     */    
     public function usernameEntryIsValid() {
-        $userName = $this->getUsername();
-        if(empty($userName)){
-            $this->errors["username"] = "Required Feild"."  Please enter a username";
-        }
-        else if(!Validator::nameIsValid($this->getUsername())){
-            $this->errors["username"]="Entry Error"."Username is not valid";
-        }
-        
-        return ( empty($this->errors["username"]) ? true : false ) ;
+                
+        return true ;
     }
     
     /**
@@ -68,17 +62,14 @@ class Signup2 {
     */    
     public function passwordEntryIsValid() {
         $password = $this->getPassword();
-        $confirmPassword = $this->getConfirmPassword();
-        $passwordlength = strlen($password);
-                
-        if(empty($password)||($passwordlength < 7)){
-        $this ->errors["password"] = "Required Feild"."  Please enter a valid password";
-        }
-        else if($confirmPassword !== $password){
-            $this->errors ["password"] = "Entry Error"." Password/Confirm Password must match.";
+        $confirmpassword = $this->getConfirmPassword();
+        
+        if ( $password !==  $confirmpassword) {
+            
         }
         
-        return ( empty($this->errors["password"]) ? true : false ) ;
+        
+        return true ;
     }
     
     
@@ -157,12 +148,4 @@ class Signup2 {
         return $this->errors;
     }
     
-       /**
-    * A static method to check if a Post request has been made.
-    *    
-    * @return boolean
-    */    
-    public function isPostRequest() {
-        return ( filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST' );
-    }
 }
