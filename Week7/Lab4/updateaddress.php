@@ -11,7 +11,7 @@
         
         Util::confirmAccess();
       
-        $states = States::getStates();
+         $states = States::getStates();
         
          $address = new AddressBook();
          

@@ -23,10 +23,8 @@ and open the template in the editor.
         
         ?>
         
-       
-        
         <h1>View Address Book</h1>
-        
+               
         <?php
         echo '<table border="1">'; 
             echo '<tr><th>Index</th><th>Address</th>';
@@ -47,6 +45,11 @@ and open the template in the editor.
             echo '</table>';
         ?>
         
+        <?php
+        
+        echo '<form name="mainform" action="createaddress.php" method="get"><input type="submit" value="Create New Address" /></form>'
+        
+        ?>
         
     </body>
 </html>
