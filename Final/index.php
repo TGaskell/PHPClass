@@ -1,3 +1,4 @@
+<?php include 'dependency.php'; ?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -14,6 +15,28 @@ and open the template in the editor.
                 
         <h1 id="logo"><span>&#x2728;</span>SaaS Project</h1>
         
+        <?php
+        // put your code here
+            $msg = '';
+            if ( ! isset($_SESSION['validcode']) ) {
+                $_SESSION['validcode'] = false;   
+            }
+            if ( Util::isPostRequest() ) {
+                $checkcode = new Passcode();
+
+                if ( $checkcode->isValidPasscode() ) {
+                    $_SESSION['validcode'] = true;
+                    Util::redirect('custompage');                   
+                } else {                    
+                    $msg = 'Password is not valid.';
+                }
+            }
+
+            if ( !empty($msg)) {
+                echo '<p>', $msg, '</p>';
+            }
+        ?>
+        
         <fieldset>
             <legend>Login</legend>
             <p> Not a member, <a href="signup.php">Signup</a></p>
@@ -28,5 +51,7 @@ and open the template in the editor.
 
             </form>
         </fieldset>
+        
+        
     </body>
 </html>

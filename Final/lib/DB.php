@@ -3,7 +3,7 @@
 /**
  * Description of DB
  *
- * @author GForti
+ * @author TGaskell
  */
 class DB {
     
