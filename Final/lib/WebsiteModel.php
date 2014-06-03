@@ -14,15 +14,15 @@
 class WebsiteModel {
     //put your code here
     
-    private $websitename;
+    private $website;
     
-    public function getWebsitename() {
-        return $this->websitename;
+    public function getWebsite() {
+        return $this->website;
     }
 
-    public function setWebsitename($websitename) {
-        if (is_string ($websitename) && !empty($websitename) && strlen($websitename)> 3){
-        $this->websitename = $websitename;
+    public function setWebsite($website) {
+        if (is_string ($website) && !empty($website) && strlen($website)> 3){
+        $this->website = $website;
         }
     }
 }

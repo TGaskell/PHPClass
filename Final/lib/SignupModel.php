@@ -9,16 +9,16 @@
 /**
  * Description of SignupModel
  *
- * @author GFORTI
+ * @author TGaskell
  */
 class SignupModel {
     //put your code here
     
     
+    private $website;
     private $email;
-    private $username;
     private $password;
-    private $confirmpassword;
+    
     
     
      function __construct($paramArr = array()) {        
@@ -35,16 +35,13 @@ class SignupModel {
         if ( array_key_exists('email', $paramArr) ) {
             $this->setEmail($paramArr['email']);
         }
-        if ( array_key_exists('username', $paramArr) ) {
-            $this->setUsername($paramArr['username']);
+        if ( array_key_exists('website', $paramArr) ) {
+            $this->setWebsite($paramArr['website']);
         }
         if ( array_key_exists('password', $paramArr) ) {
             $this->setPassword($paramArr['password']);
         }
-        if ( array_key_exists('confirmpassword', $paramArr) ) {
-            $this->setConfirmpassword($paramArr['confirmpassword']);
-        }        
-        
+                
     }
     
     
@@ -52,33 +49,26 @@ class SignupModel {
         return $this->email;
     }
 
-    public function getUsername() {
-        return $this->username;
+    public function getWebsite() {
+        return $this->website;
     }
 
     public function getPassword() {
         return $this->password;
     }
 
-    public function getConfirmpassword() {
-        return $this->confirmpassword;
-    }
-
+    
     public function setEmail($email) {
         $this->email = $email;
     }
 
-    public function setUsername($username) {
-        $this->username = $username;
+    public function setWebsite($website) {
+        $this->website = $website;
     }
 
     public function setPassword($password) {
         $this->password = $password;
     }
 
-    public function setConfirmpassword($confirmpassword) {
-        $this->confirmpassword = $confirmpassword;
-    }
-
-
+    
 }

@@ -2,17 +2,17 @@
 <?php
 
 $websiteRequest = new WebsiteModel();
-$websiteRequest->setWebsitename(filter_input(INPUT_POST, 'websitename'));
+$websiteRequest->setWebsite(filter_input(INPUT_POST, 'website'));
 
-$checkWebsitename = array( "taken" => 'Available', 
-                        "websitename" => $websitenameRequest->getWebsitename());
+$checkWebsite = array( "taken" => 'Available', 
+                        "website" => $websiteRequest->getWebsite());
 
 $login = new Login();
 
-if ($login->websitenameTaken($websitenameRequest)){
+if ($login->websiteTaken($websiteRequest)){
     
-    $checkWebsitename["taken"]= 'UnAvailable';
+    $checkWebsite["taken"]= 'UnAvailable';
           
 }
 
-echo json_encode($checkWebsitename);
+echo json_encode($checkWebsite);

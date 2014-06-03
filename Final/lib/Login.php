@@ -18,16 +18,16 @@ class Login extends DB{
         $this->setDb();
     }
 
-    public function websitenameTaken( WebsitenameModel $websitenameModel ){
+    public function websiteTaken( WebsiteModel $websiteModel ){
         
-        $websitename = $websitenameModel->getWebsitename();
+        $website = $websiteModel->getWebsite();
         $isTaken = false;
         
         if ( null !== $this->getDB() ) {
-            $dbs = $this->getDB()->prepare('select website from users '
-                    . 'where websitename = :websitename limit 1');
+            $dbs = $this->getDB()->prepare('select website from saas '
+                    . 'where website = :website limit 1');
             
-            $dbs->bindParam(':websitename', $websitename, PDO::PARAM_STR);
+            $dbs->bindParam(':website', $website, PDO::PARAM_STR);
                         
             if ( $dbs->execute() && $dbs->rowCount() > 0 ) {
                 $isTaken = true;
