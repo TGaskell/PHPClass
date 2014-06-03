@@ -7,17 +7,17 @@ xhr.onreadystatechange = function() {
    } 
 };  
 
-var websitenameField = document.querySelector('#website');
-var websitenameInfo = document.querySelector('.websitenametaken');
+var websiteField = document.querySelector('#website');
+var websiteInfo = document.querySelector('.websitetaken');
 
-websitenameField.addEventListener('blur',makeAJAXCall);
+websiteField.addEventListener('blur',makeAJAXCall);
 
 
 function makeAJAXCall(){
        
-    xhr.open('POST', 'websitenametaken.php', true);
+    xhr.open('POST', 'websitetaken.php', true);
     xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-    xhr.send('websitename='+websitenameField.value);
+    xhr.send('website='+websiteField.value);
 
 }
 
@@ -25,6 +25,6 @@ function makeAJAXCall(){
 function callback() {
         var response = JSON.parse(xhr.responseText);  
 
-        websitenameInfo.innerHTML = response.taken;
+        websiteInfo.innerHTML = response.taken;
        
 }
