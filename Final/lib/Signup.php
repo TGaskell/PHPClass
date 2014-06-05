@@ -9,7 +9,7 @@
 /**
  * Description of Signup
  *
- * @author GFORTI
+ * @author TGaskell
  */
 class Signup extends DB {
     //put your code here
@@ -26,7 +26,7 @@ class Signup extends DB {
         $password = sha1($SignupModel->getPassword());
                
          if ( null !== $this->getDB() ) {
-            $SignupModel = $this->getDB()->prepare('insert into saas set website = :website, email = :email, password = :password');
+            $SignupModel = $this->getDB()->prepare('insert into users set website = :website, email = :email, password = :password');
             $SignupModel->bindParam(':website', $website, PDO::PARAM_STR);
             $SignupModel->bindParam(':email', $email, PDO::PARAM_STR);
             $SignupModel->bindParam(':password', $password, PDO::PARAM_STR);
@@ -42,7 +42,5 @@ class Signup extends DB {
         
         return $result;
     }
-    
-
-   
+ 
 }
