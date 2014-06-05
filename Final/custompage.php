@@ -53,10 +53,11 @@ and open the template in the editor.
                                        "theme3"=> 'Theme 3');
                     
                      foreach ($themelist as $key => $value) {
-                                      
+                        if ($dataModel->getTheme()=== $key){
+                            echo '<option value="',$key,'" selected = "selected">',$key,'</option>';
+                        }              
                      }  
-                     
-                     echo $dataModel->getTheme();             
+                              
                  ?>
                 <option value="theme1" >Theme 1</option>
                 <option value="theme2" >Theme 2</option>
