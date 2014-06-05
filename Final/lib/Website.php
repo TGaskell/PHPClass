@@ -11,7 +11,7 @@
  *
  * @author Owner
  */
-class Login extends DB{
+class Website extends DB{
     //put your code here
     
     function __construct() {

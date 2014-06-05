@@ -7,7 +7,7 @@ $websiteRequest->setWebsite(filter_input(INPUT_POST, 'website'));
 $checkWebsite = array( "taken" => 'Available', 
                         "website" => $websiteRequest->getWebsite());
 
-$login = new Login();
+$login = new Website();
 
 if ($login->websiteTaken($websiteRequest)){
     

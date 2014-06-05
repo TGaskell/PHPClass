@@ -18,7 +18,7 @@ class CustompageModel {
     private $address;
     private $phone;
     private $email;
-    private $content;
+    private $about;
     
     
     
@@ -48,8 +48,8 @@ class CustompageModel {
         if ( array_key_exists('email', $paramArr) ) {
             $this->setEmail($paramArr['email']);
         }
-        if ( array_key_exists('content', $paramArr) ) {
-            $this->setContent($paramArr['content']);
+        if ( array_key_exists('about', $paramArr) ) {
+            $this->setContent($paramArr['about']);
         }
                 
     }
@@ -70,8 +70,8 @@ class CustompageModel {
     public function getEmail() {
         return $this->email;
     }
-    public function getContent() {
-        return $this->content;
+    public function getAbout() {
+        return $this->about;
     }
     
     public function setTitle($title) {
@@ -89,8 +89,8 @@ class CustompageModel {
     public function setEmail($email) {
         $this->email = $email;
     }
-    public function setContent($content) {
-        $this->content = $content;
+    public function setAbout($about) {
+        $this->about = $about;
     }
        
 }

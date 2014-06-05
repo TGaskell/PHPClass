@@ -12,7 +12,26 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
     <body>
-                 
+        <?php
+        // put your code here
+                      
+        if ( !isset( $_SESSION['user_id']) ) {
+             $_SESSION['user_id'] = "false";
+        } 
+        
+         $createCustompage = new Custompage();
+  
+         $dataModel = new CustompageModel(filter_input_array(INPUT_POST));
+         
+         if ( Util::isPostRequest() ) {
+            
+              if ( $id = $createCustompage->save($dataModel)){
+                var_dump($id);
+                //Util::redirect('login');
+               }
+           }
+        ?>
+        
         <h1 id="logo"><span>&#x2728;</span>SaaS Project</h1>
         
         <div id="corner"><a href="?logout=1">Logout</a></div>
@@ -26,19 +45,31 @@ and open the template in the editor.
         
          <form name="mainform" action="#" method="post">
             
-             <label> Title:</label> <input type="text" name="title" value="Test title page" /><br />            
-             <label> Theme:</label> <select name="theme">
+             <label> Title:</label> <input type="text" name="title" value="<?php echo $dataModel->getTitle(); ?>" /><br />            
+             <label> Theme:</label> <select name="theme"> 
+                 <?php 
+                    $themelist = array("theme1" => 'Theme 1',
+                                       "theme2"=> 'Theme 2',
+                                       "theme3"=> 'Theme 3');
+                    
+                     foreach ($themelist as $key => $value) {
+                                      
+                     }  
+                     
+                     echo $dataModel->getTheme();             
+                 ?>
                 <option value="theme1" >Theme 1</option>
-                <option value="theme2" selected="selected">Theme 2</option>
+                <option value="theme2" >Theme 2</option>
                 <option value="theme3" >Theme 3</option>
                  </select>
+             
             <br />
             
-            <label> Address:</label> <input type="text" name="address" value="123 Main Street, Anywhere, CT 06360" /><br /> 
-            <label> Phone:</label> <input type="text" name="phone" value="555-555-5555" /><br /> 
-            <label> Email:</label> <input type="text" name="email" value="test@test.com" /><br /> 
+            <label> Address:</label> <input type="text" name="address" value="<?php echo $dataModel->getAddress(); ?>" /><br /> 
+            <label> Phone:</label> <input type="text" name="phone" value="<?php echo $dataModel->getPhone(); ?>" /><br /> 
+            <label> Email:</label> <input type="text" name="email" value="<?php echo $dataModel->getEmail(); ?>" /><br /> 
             <label> About:</label><br />
-            <textarea name="about" cols="50" rows="10">Comments - looks good.</textarea><br /> 
+            <textarea name="about" cols="50" rows="10"  ><?php echo $dataModel->getAbout(); ?></textarea> <br /> 
             
             <input type="submit" value="Submit" />
             

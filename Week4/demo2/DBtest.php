@@ -8,7 +8,7 @@
     <body>
         <?php
         // put your code here
-        
+       
         /*
          * PDO is a built-in to PHP, you can use it to connect to a Database
          */
@@ -56,7 +56,7 @@
        
        
          // print_r($results);      
-          /*      
+               
                 
                  if ( NULL != $db ) {
                 $statement = $db->prepare('select * from login where username = :user and password = :password limit 1');
@@ -70,7 +70,6 @@
                 }
             }
             $dbo->closeDB();
-        */
-        ?>
+                ?>
     </body>
 </html>

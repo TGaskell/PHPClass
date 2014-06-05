@@ -15,7 +15,7 @@ and open the template in the editor.
           <?php
         // put your code here
   
-         $createSignup = new Signup;
+         $createSignup = new Signup();
   
          $dataModel = new SignupModel(filter_input_array(INPUT_POST));
          
